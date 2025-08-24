@@ -22,8 +22,8 @@ export const AdminPanel = () => {
     e.preventDefault();
     updateAdminSettings(formData);
     toast({
-      title: "Settings updated",
-      description: "Admin settings have been saved successfully",
+      title: "Đã cập nhật cài đặt",
+      description: "Cài đặt quản trị đã được lưu thành công",
     });
     setOpen(false);
   };
@@ -48,21 +48,21 @@ export const AdminPanel = () => {
       <DialogTrigger asChild>
         <Button variant="gradient" size="sm">
           <Settings className="w-4 h-4 mr-2" />
-          Admin Panel
+          Bảng điều khiển quản trị
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto bg-card border-border">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-card-foreground">
-            Admin Panel
+            Bảng điều khiển quản trị
           </DialogTitle>
         </DialogHeader>
         
         <Tabs defaultValue="settings" className="w-full">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-            <TabsTrigger value="security">Security</TabsTrigger>
-            <TabsTrigger value="colors">Colors</TabsTrigger>
+            <TabsTrigger value="settings">Cài đặt</TabsTrigger>
+            <TabsTrigger value="security">Bảo mật</TabsTrigger>
+            <TabsTrigger value="colors">Màu sắc</TabsTrigger>
           </TabsList>
 
           <form onSubmit={handleSubmit}>

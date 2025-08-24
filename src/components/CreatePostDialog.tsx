@@ -39,8 +39,8 @@ export const CreatePostDialog = () => {
     
     if (!formData.title || !formData.deviceTag || !formData.category || !formData.copyableText || !formData.postedBy) {
       toast({
-        title: "Missing fields",
-        description: "Please fill in all required fields",
+        title: "Thiếu thông tin",
+        description: "Vui lòng điền đầy đủ các trường bắt buộc",
         variant: "destructive",
       });
       return;
@@ -57,8 +57,8 @@ export const CreatePostDialog = () => {
     });
 
     toast({
-      title: "Post created",
-      description: "Your post has been submitted for approval",
+      title: "Đã tạo bài viết",
+      description: "Bài viết của bạn đã được gửi để phê duyệt",
     });
 
     setFormData({
@@ -83,24 +83,24 @@ export const CreatePostDialog = () => {
       <DialogTrigger asChild>
         <Button variant="gradient" size="sm">
           <Plus className="w-4 h-4 mr-2" />
-          Create New Post
+          Tạo bài viết mới
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px] bg-card border-border">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-card-foreground">
-            Create New Post
+            Tạo bài viết mới
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="deviceTag" className="text-sm font-medium">
-                Device Tag *
+                Nền tảng *
               </Label>
               <Select value={formData.deviceTag} onValueChange={(value) => handleChange('deviceTag', value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select device" />
+                  <SelectValue placeholder="Chọn nền tảng" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="PC">PC</SelectItem>
@@ -111,11 +111,11 @@ export const CreatePostDialog = () => {
 
             <div className="space-y-2">
               <Label htmlFor="category" className="text-sm font-medium">
-                Category *
+                Loại vũ khí *
               </Label>
               <Select value={formData.category} onValueChange={(value) => handleChange('category', value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select category" />
+                  <SelectValue placeholder="Chọn loại vũ khí" />
                 </SelectTrigger>
                 <SelectContent>
                   {categories.map(category => (
@@ -130,59 +130,59 @@ export const CreatePostDialog = () => {
 
           <div className="space-y-2">
             <Label htmlFor="title" className="text-sm font-medium">
-              Post Title *
+              Tiêu đề *
             </Label>
             <Input
               id="title"
               value={formData.title}
               onChange={(e) => handleChange('title', e.target.value)}
-              placeholder="Enter post title"
+              placeholder="Nhập tiêu đề bài viết"
               className="bg-muted border-border"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="copyableText" className="text-sm font-medium">
-              Copyable Text *
+              Mã vũ khí *
             </Label>
             <Input
               id="copyableText"
               value={formData.copyableText}
               onChange={(e) => handleChange('copyableText', e.target.value)}
-              placeholder="Text that users can copy"
+              placeholder="Mã vũ khí có thể sao chép"
               className="bg-muted border-border"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="description" className="text-sm font-medium">
-              Description
+              Mô tả
             </Label>
             <Textarea
               id="description"
               value={formData.description}
               onChange={(e) => handleChange('description', e.target.value)}
-              placeholder="Enter post description..."
+              placeholder="Nhập mô tả bài viết..."
               className="bg-muted border-border h-20 resize-none"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="postedBy" className="text-sm font-medium">
-              Posted By *
+              Người đăng *
             </Label>
             <Input
               id="postedBy"
               value={formData.postedBy}
               onChange={(e) => handleChange('postedBy', e.target.value)}
-              placeholder="Your name or username"
+              placeholder="Tên hoặc nickname của bạn"
               className="bg-muted border-border"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="imageUrl" className="text-sm font-medium">
-              Image URL (Optional)
+              Link hình ảnh minh họa (Tùy chọn)
             </Label>
             <Input
               id="imageUrl"
@@ -195,10 +195,10 @@ export const CreatePostDialog = () => {
 
           <div className="flex gap-3 pt-4">
             <Button type="button" variant="outline" onClick={() => setOpen(false)} className="flex-1">
-              Cancel
+              Hủy
             </Button>
             <Button type="submit" variant="gradient" className="flex-1">
-              Create Post
+              Tạo bài viết
             </Button>
           </div>
         </form>

@@ -112,7 +112,7 @@ const Index = () => {
                   onClick={loadMore}
                   className="px-8 py-3"
                 >
-                  Load More Posts
+                  Tải thêm bài viết
                 </Button>
               </div>
             )}
@@ -121,12 +121,12 @@ const Index = () => {
           <div className="text-center py-16">
             <div className="bg-card rounded-xl p-8 border border-border max-w-md mx-auto">
               <h3 className="text-xl font-semibold text-card-foreground mb-2">
-                No posts found
+                Không tìm thấy bài viết
               </h3>
               <p className="text-muted-foreground">
                 {selectedCategory === "All" 
-                  ? "No approved posts available yet."
-                  : `No approved posts in "${selectedCategory}" category.`
+                  ? "Chưa có bài viết được phê duyệt."
+                  : `Không có bài viết được phê duyệt trong danh mục "${selectedCategory}".`
                 }
               </p>
             </div>

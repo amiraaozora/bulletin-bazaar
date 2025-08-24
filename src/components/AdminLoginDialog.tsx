@@ -18,15 +18,15 @@ export const AdminLoginDialog = () => {
     
     if (login(password)) {
       toast({
-        title: "Login successful",
-        description: "Welcome to admin panel",
+        title: "Đăng nhập thành công",
+        description: "Chào mừng đến bảng điều khiển quản trị",
       });
       setPassword('');
       setOpen(false);
     } else {
       toast({
-        title: "Login failed",
-        description: "Incorrect password",
+        title: "Đăng nhập thất bại",
+        description: "Mật khẩu không đúng",
         variant: "destructive",
       });
     }
@@ -35,8 +35,8 @@ export const AdminLoginDialog = () => {
   const handleLogout = () => {
     logout();
     toast({
-      title: "Logged out",
-      description: "You have been logged out successfully",
+      title: "Đã đăng xuất",
+      description: "Bạn đã đăng xuất thành công",
     });
   };
 
@@ -44,7 +44,7 @@ export const AdminLoginDialog = () => {
     return (
       <Button variant="outline" size="sm" onClick={handleLogout}>
         <LogOut className="w-4 h-4 mr-2" />
-        Admin Logout
+        Đăng xuất quản trị
       </Button>
     );
   }
@@ -54,26 +54,26 @@ export const AdminLoginDialog = () => {
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           <LogIn className="w-4 h-4 mr-2" />
-          Admin Login
+          Đăng nhập quản trị
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[350px] bg-card border-border">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-card-foreground">
-            Admin Login
+            Đăng nhập quản trị
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="password" className="text-sm font-medium">
-              Password
+              Mật khẩu
             </Label>
             <Input
               id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter admin password"
+              placeholder="Nhập mật khẩu quản trị"
               className="bg-muted border-border"
               autoComplete="current-password"
             />
@@ -81,10 +81,10 @@ export const AdminLoginDialog = () => {
 
           <div className="flex gap-3 pt-4">
             <Button type="button" variant="outline" onClick={() => setOpen(false)} className="flex-1">
-              Cancel
+              Hủy
             </Button>
             <Button type="submit" variant="gradient" className="flex-1">
-              Login
+              Đăng nhập
             </Button>
           </div>
         </form>

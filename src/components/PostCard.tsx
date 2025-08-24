@@ -20,14 +20,14 @@ export const PostCard = ({ post }: PostCardProps) => {
       await navigator.clipboard.writeText(post.copyableText);
       setCopied(true);
       toast({
-        title: "Copied to clipboard",
-        description: "Text has been copied successfully",
+        title: "Đã sao chép",
+        description: "Đã sao chép văn bản thành công",
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
-        title: "Copy failed",
-        description: "Unable to copy text to clipboard",
+        title: "Sao chép thất bại",
+        description: "Không thể sao chép văn bản",
         variant: "destructive",
       });
     }
@@ -40,11 +40,11 @@ export const PostCard = ({ post }: PostCardProps) => {
   };
 
   const handleDelete = () => {
-    if (confirm('Are you sure you want to delete this post?')) {
+    if (confirm('Bạn có chắc chắn muốn xóa bài viết này?')) {
       deletePost(post.id);
       toast({
-        title: "Post deleted",
-        description: "The post has been removed successfully",
+        title: "Đã xóa bài viết",
+        description: "Bài viết đã được xóa thành công",
       });
     }
   };
@@ -52,8 +52,8 @@ export const PostCard = ({ post }: PostCardProps) => {
   const handleApprove = () => {
     approvePost(post.id);
     toast({
-      title: "Post approved",
-      description: "The post is now visible to all users",
+      title: "Đã phê duyệt bài viết",
+      description: "Bài viết hiện đã hiển thị cho tất cả người dùng",
     });
   };
 
@@ -70,7 +70,7 @@ export const PostCard = ({ post }: PostCardProps) => {
               className="h-8 text-xs"
             >
               <Check className="w-3 h-3 mr-1" />
-              Approve
+              Phê duyệt
             </Button>
           )}
           <Button
@@ -80,7 +80,7 @@ export const PostCard = ({ post }: PostCardProps) => {
             className="h-8 text-xs"
           >
             <Trash2 className="w-3 h-3 mr-1" />
-            Delete
+            Xóa
           </Button>
         </div>
       )}
@@ -117,13 +117,13 @@ export const PostCard = ({ post }: PostCardProps) => {
       {/* Description Box */}
       <div className="bg-muted/50 rounded-lg p-4 h-24 mb-4 overflow-hidden border border-border/50">
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4">
-          {post.description || "No description provided."}
+          {post.description || "Chưa có mô tả."}
         </p>
       </div>
 
       {/* Posted By */}
-      <p className="text-xs text-muted-foreground mb-4 italic">
-        Posted by {post.postedBy}
+      <p className="text-xs text-primary mb-4 italic font-medium">
+        Người đăng: {post.postedBy}
       </p>
 
       {/* Image Button */}
@@ -135,13 +135,13 @@ export const PostCard = ({ post }: PostCardProps) => {
         className="w-full justify-center"
       >
         <Image className="w-4 h-4 mr-2" />
-        {post.imageUrl ? "View Attachment" : "No Attachments"}
+        {post.imageUrl ? "Xem hình ảnh" : "Không có hình ảnh"}
       </Button>
 
       {/* Approval Status for Admin */}
       {isAdminLoggedIn && !post.approved && (
         <div className="mt-3 px-3 py-1 bg-destructive/20 border border-destructive/30 rounded-lg">
-          <p className="text-xs text-destructive font-medium">Pending Approval</p>
+          <p className="text-xs text-destructive font-medium">Chờ phê duyệt</p>
         </div>
       )}
     </div>
